@@ -4,6 +4,9 @@
 #include <fstream>
 #include <string>
 
+
+/* Struktura posiadajaca informacje o konkretnym elemencie zadania */
+
 struct element {
 
 	int index;
@@ -11,6 +14,8 @@ struct element {
 	int p;
 	int q;
 };
+
+/* Funkcja, ktora wczytuje dane do wektora ( wektora typu element )  */
 
 void loadData(int size, std::string fileName, std::vector <element>& task) {
 
@@ -41,6 +46,8 @@ void loadData(int size, std::string fileName, std::vector <element>& task) {
 	file.close();
 }
 
+/* Funkcja wyswietlajaca elementy wektora ( wektora typu element ) */
+
 void showData(int size, std::vector <element> task) {
 
 	for (int i = 0; i < size; i++)
@@ -54,44 +61,33 @@ void showData(int size, std::vector <element> task) {
 	}
 }
 
+/* Funkcja wyswietlajaca uporzadkowane wedlug algorytmu elementy z tablicy, czyli wynik zadania */
+
 void showArray(int size, element* tablica) {
 
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << tablica[i].index << " "; /*") ";*/
-		//std::cout << tablica[i].r << " ";
-		//std::cout << tablica[i].p << " ";
-		//std::cout << tablica[i].q << " ";
-		//std::cout << std::endl;
-
+		std::cout << tablica[i].index << " ";
 	}
 }
 
-int check(std::vector <element> task, int size)
-{
-	int c = 0;
-	int m = 0;
-
-	for (int i = 0; i < size; i++)
-	{
-		m = std::max(m, task[i].r) + task[i].p;
-		c = std::max(m + task[i].q, c);
-	}
-
-	return c;
-}
+/* Sortowanie elementow wektora po R*/
 
 bool compareByR(const element& a, const element& b)
 {
 	return a.r > b.r;
 }
 
+/* Sortowanie elementow wektora po Q*/
+
 bool compareByQ(const element& a, const element& b)
 {
 	return a.q > b.q;
 }
 
-void algorithm(std::vector <element>& task, element* tablica, int size)
+/* Funkcja znajdujaca kolejnosc wybierania elementow zadania */
+
+void algorithm(std::vector <element>& task, element* table, int size)
 {
 	int tmp1 = 0;
 	int tmp2 = 1;
@@ -101,7 +97,7 @@ void algorithm(std::vector <element>& task, element* tablica, int size)
 		if (i % 2 == 0)
 		{
 			std::sort(task.begin(), task.end(), compareByR);
-			tablica[tmp1] = task[task.size() - 1];
+			table[tmp1] = task[task.size() - 1];
 			task.pop_back();
 			tmp1 += 1;
 		}
@@ -109,57 +105,75 @@ void algorithm(std::vector <element>& task, element* tablica, int size)
 		if (i % 2 != 0)
 		{
 			std::sort(task.begin(), task.end(), compareByQ);
-			tablica[size - tmp2] = task[task.size() - 1];
+			table[size - tmp2] = task[task.size() - 1];
 			task.pop_back();
 			tmp2 += 1;
 		}
 	}
 }
 
-int check(element* tablica, int size)
+/* Funkcja sprawdzajaca dlugosc wykonywania zadania dla elementow z tablicy */
+
+int check(element* table, int size)
 {
 	int c = 0;
 	int m = 0;
 
 	for (int i = 0; i < size; i++)
 	{
-		m = std::max(m, tablica[i].r) + tablica[i].p;
-		c = std::max(m + tablica[i].q, c);
+		m = std::max(m, table[i].r) + table[i].p;
+		c = std::max(m + table[i].q, c);
 	}
 
 	return c;
 }
 
+/* Funkcja glowna */
+
 int main() {
 
 	int size;
+	int sum=0;
+	std::string fileNames[4] = {"data.1.txt","data.2.txt","data.3.txt","data.4.txt" };
 	std::vector <element> task;
 	std::string fileName;
 	std::fstream file;
+	
 
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << std::endl;
+		//std::cin >> fileName;
+		fileName = fileNames[i];
 
-	std::cin >> fileName;
+		file.open(fileName.c_str(), std::fstream::in);
+		file >> size;
+		file.close();
 
-	file.open(fileName.c_str(), std::fstream::in);
-	file >> size;
-	file.close();
+		loadData(size, fileName, task);
+		showData(size, task);
+		std::cout << std::endl;
 
-	loadData(size, fileName, task);
-	showData(size, task);
+		element* solvedTask = new element[size];
+		algorithm(task, solvedTask, size);
 
-	element* tablica = new element[size];
+		std::cout << "Rozwiazanie dla " << fileNames[i] << " wyglada nastepujaco : ";
+		showArray(size, solvedTask);
+		std::cout << std::endl;
 
-	algorithm(task, tablica, size);
+		int timeResult = check(solvedTask, size);
+		std::cout << "Wynik czasowy dla tego przypadku wynosi : ";
+		std::cout << timeResult;
+		std::cout << std::endl;
+
+		sum += timeResult;
+
+		delete[] solvedTask;
+	}
 
 	std::cout << std::endl;
-
-	showArray(size, tablica);
-
-	int timeResult = check(tablica, size);
+	std::cout << "Suma czasowa dla wszystkich przykladow wynosi: " << sum ;
 	std::cout << std::endl;
-	std::cout << timeResult;
-
-	delete[] tablica;
 
 	return 0;
 }
