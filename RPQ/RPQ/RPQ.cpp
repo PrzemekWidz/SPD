@@ -175,5 +175,7 @@ int main() {
 	std::cout << "Suma czasowa dla wszystkich przykladow wynosi: " << sum ;
 	std::cout << std::endl;
 
+	std::getchar();
+
 	return 0;
 }
