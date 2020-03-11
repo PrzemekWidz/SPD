@@ -151,7 +151,7 @@ int main() {
 		file.close();
 
 		loadData(size, fileName, task);
-		showData(size, task);
+		//showData(size, task);
 		std::cout << std::endl;
 
 		element* solvedTask = new element[size];
