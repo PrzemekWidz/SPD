@@ -2,4 +2,4 @@
 
 Dodane programy :
 
- - Ä†wiczenie nr. 1 , tj. problem RPQ
+ - Æwiczenie nr. 1 , tj. problem RPQ
