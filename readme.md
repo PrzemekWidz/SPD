@@ -3,3 +3,4 @@
 Dodane programy :
 
  - Æwiczenie nr. 1 , tj. problem RPQ
+ - Æwiczenie nr. 2 , tj. problem witi
