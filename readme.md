@@ -4,6 +4,8 @@
 
 Dodane programy :
 
- - Ćwiczenie nr. 1 , tj. problem RPQ
- - Ćwiczenie nr. 2 , tj. suma witi
- - Ćwiczenie nr. 3 , tj. algorytm neh
+|  Nr ćwiczenia  | Zadanie  | Lokalizacja programu ( nazwa folderu ) |
+| :------------: | :------------: | :------------: 
+| 1 | problem RPQ | /RPQ |
+| 2 | suma witi | /witi |
+| 3 | algorytm neh | /neh |
