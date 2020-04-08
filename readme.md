@@ -5,4 +5,5 @@
 Dodane programy :
 
  - Ćwiczenie nr. 1 , tj. problem RPQ
- - Ćwiczenie nr. 2 , tj. problem witi
+ - Ćwiczenie nr. 2 , tj. suma witi
+ - Ćwiczenie nr. 3 , tj. algorytm neh
