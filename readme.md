@@ -4,7 +4,7 @@
 
 Dodane programy :
 
-|  Nr ćwiczenia  | Zadanie  | Lokalizacja programu ( nazwa folderu ) | Sugerowana ocena obliczona na podstawie \n danych ze strony prowadzącego |
+|  Nr ćwiczenia  | Zadanie  | Lokalizacja programu ( nazwa folderu ) | Sugerowana ocena obliczona na podstawie \\ danych ze strony prowadzącego |
 | :------------: | :------------: | :------------: | :------------: |
 | 1 | problem RPQ | /RPQ | |
 | 2 | suma witi | /witi | |
