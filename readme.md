@@ -1,6 +1,6 @@
 # Kurs SPD LAB, rok akademicki 2019/20 .
 
-**!! Uwaga dla prowadzącego : Programy zostały napisane w środowisku Microsoft Visual Studio 2019 !!**
+> **!! Uwaga dla prowadzącego : Programy zostały napisane w środowisku Microsoft Visual Studio 2019 !!**
 
 Dodane programy :
 
