@@ -9,3 +9,4 @@ Dodane programy :
 | 1 | problem RPQ | /RPQ | 3.5 |
 | 2 | suma witi | /witi | 4.0 |
 | 3 | algorytm neh | /neh | 3.0 |
+| 4 | algorytm schrage | /schrage | 3.0 |
