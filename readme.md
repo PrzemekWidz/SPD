@@ -10,3 +10,4 @@ Dodane programy :
 | 2 | suma witi | /witi | 4.0 |
 | 3 | algorytm neh | /neh | 3.0 |
 | 4 | algorytm schrage | /schrage | 3.0 |
+| 5 | algorytm carlier | /carlier | 3.0 |
